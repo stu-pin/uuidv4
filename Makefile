@@ -1,5 +1,5 @@
 uuid:
-	cc -o uuid uuid.c
+	cc -Wall -o uuid uuid.c
 
 clean:
 	-rm -f uuid

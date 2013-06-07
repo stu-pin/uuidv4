@@ -82,7 +82,10 @@ create_uuid4(UUID *u, FILE *f) {
 int
 main() {
 	FILE *f;
-	f = open_rand();
+	if ((f = open_rand()) == NULL) {
+		fprintf(stderr, "Failed to open /dev/urandom.\n");
+		return EXIT_FAILURE;
+	}
 	UUID u;
 	if (create_uuid4(&u, f)) {
 		printf("%s\n", u.str);
